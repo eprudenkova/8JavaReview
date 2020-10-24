@@ -10,7 +10,7 @@ public class WhileLoopWithSwitch {
 		char operation;
 		int result;
 		boolean continueLoop = true;
-		String answer=null;
+		String answer = null;
 		while (continueLoop) {
 			System.out.println("Please enter 2 numbers");
 			Scanner scan = new Scanner(System.in);
@@ -18,6 +18,10 @@ public class WhileLoopWithSwitch {
 			num2 = scan.nextInt();
 			System.out.println("Please enter operator");
 			operation = scan.next().charAt(0);
+			if (!(operation=='+'||operation=='-'||operation=='*'||operation=='/')) {
+				System.out.println("Operation not supported");
+				break;
+			}
 			switch (operation) {
 			case '+':
 				result = num1 + num2;
@@ -37,13 +41,19 @@ public class WhileLoopWithSwitch {
 			System.out.println(result);
 
 			System.out.println("Would you like to repeat? yes/no");
-			answer = scan.next();
-			if(answer.equalsIgnoreCase("no")) {
-				break;
+//			1.
+//			answer = scan.next();
+//			if (answer.equalsIgnoreCase("no")) {
+//				break;
+//			}
+//			2.
+//			if ("no".equalsIgnoreCase(scan.next())) {
+//				continueLoop = false;
+//			}
+//			3.
+			if(scan.next().equalsIgnoreCase("no")){
+				continueLoop = false;
 			}
-
 		}
-
 	}
-
 }
